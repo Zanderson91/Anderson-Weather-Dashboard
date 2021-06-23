@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="jumbotron jumbotron-fluid text-center mt-2 p-4">
+    <div class="jumbotron jumbotron-fluid text-center mt-2 p-4" style="background-color: cadetblue; color: whitesmoke">
         <div class="container">
             <h1 class="display-4">Weather Dashboard</h1>
             <p class="lead">5 Day Forecast for your selected city</p>
@@ -23,25 +23,32 @@
         <div class="row">
             <div class="col-sm-4 bg-light">
                 <h3 class="pt-1">City:</h3>
-                <div class="input-group-append">
-                    <button class="btn bg-primary text-light" id="search-btn">
-                        <i class="fa fa-search"></i>
-                    </button>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="search" placeholder="Frisco, TX">
+                    <div class="input-group-append">
+                        <button class="btn bg-primary text-light" id="search-btn">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
                 </div>
-
-
+                <button class=" btn btn-primary" type="button" id="clear-history">Clear history</button>
+                <ul class="list-group"></ul>
             </div>
-        </div>
+            <div class="col-sm-8">
+                <div class="row ml-3 border">
+                    
+                </div>
+                <div
+            </div>
 
-    </div>
 
 
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="./script.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+            <script src="./script.js"></script>
 </body>
 
 
