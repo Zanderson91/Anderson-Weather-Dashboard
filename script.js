@@ -5,8 +5,10 @@ let queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&ap
 let search = $("#search");
 let seacrchBtn = $("#search-btn");
 let selectCity = $("#select-city");
-let currentTemp = $("#")
-
+let todayTemp = $("#temp")
+let todayWind = $("#wind")
+let todayHumid = $("#humid")
+let todayUV = $("#UV")
 let city ="";
 
 
