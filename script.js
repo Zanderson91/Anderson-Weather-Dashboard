@@ -9,9 +9,15 @@ let todayTemp = $("#temp")
 let todayWind = $("#wind")
 let todayHumid = $("#humid")
 let todayUV = $("#UV")
-let city ="";
+let city = "";
+let cityIndex = []
 
 
+function search(cityName){
+    for (var i=0; i<cityIndex.length; i++){
+        if(cityName.toUpperCase()
+    }
+}
 
 
 fetch(queryURL)
