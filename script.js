@@ -25,11 +25,16 @@ function search(cityName){
 //Need function for current and future Weather
 function showForecast(event){
     if (search.val ().trim() !==""){
-        city=search.val().trum();
+        city=search.val().trim();
         todayWeather(city);
     event.preventDefault();
     }
 }
 
+function showWeather(city){
+    $.ajax({
+        url:queryURL
+    })
+}
 
 fetch(queryURL)
