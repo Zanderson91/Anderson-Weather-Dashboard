@@ -43,3 +43,5 @@ console.log(response);
 }
 
 //Need Event Handlers
+$(document).on("click",showPastSearch);
+$("search-btn").on("click", showWeather)
