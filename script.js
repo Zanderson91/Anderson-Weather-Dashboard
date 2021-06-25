@@ -44,8 +44,13 @@ function showWeather(city){
     $(selectCity).html(response.name +"(date)");
     console.log(date)
 
-    })
-}
+    //Need to return Wind, Humid, Temp
+    let windSpeed = response.windspeed;
+    let windMPH = (windSpeed*2.237).toFixed(1);
+    $(todayWind).html(windMPH+"MPH");
+    console.log(windSpeed)
+
+
 
 //Need Event Handlers
 //$(document).on("click",showPastSearch);
