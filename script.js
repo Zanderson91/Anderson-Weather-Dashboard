@@ -32,7 +32,8 @@ function showForecast(event){
 
 function showWeather(city){
     let APIKey = "7743391ae0557cf69b59c68a0e3c7325"
-    let queryURL = "api.openweathermap.org/data/2.5/weather?q="+ city + "&appid=" + APIKey;
+    let queryURL = "api.openweathermap.org/data/2.5/weather?q="+ city + "&appid=c80edcc66d171f416034dd0af305df70";
+
 
     $.ajax({
         method:"GET",
