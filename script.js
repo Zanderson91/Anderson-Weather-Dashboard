@@ -29,7 +29,7 @@ function showForecast(event){
 
 function showWeather(city){
     let APIKey = "c80edcc66d171f416034dd0af305df70"
-    let queryURL = "http://api.openweathermap.org/data/2.5/forecast?q="+ 'city' + "&appid=c80edcc66d171f416034dd0af305df70";
+    let queryURL = "http://api.openweathermap.org/data/2.5/forecast?q="+ 'dallas' + "&appid=c80edcc66d171f416034dd0af305df70";
 
 
     $.ajax({
@@ -49,8 +49,12 @@ function showWeather(city){
     let windMPH = (windSpeed*2.237).toFixed(1);
     $(todayWind).html(windMPH+"MPH");
     console.log(windSpeed)
-
-
+    // Temperature response for today (converted to F)
+    let temperature = (response.temp - 273.15) * 1.80 + 32;
+    $(todayTemp).html((temperature).toFixed(2)+"F");
+    console.log(todayTemp)
+    })
+}
 
 //Need Event Handlers
 //$(document).on("click",showPastSearch);
