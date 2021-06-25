@@ -44,7 +44,7 @@ function showWeather(city){
     $(selectCity).html(response.name +"(date)");
     console.log(date)
 
-    //Need to return Wind, Humid, Temp
+    //Need to return Wind, Humid, Temp, UV
     let windSpeed = response.windspeed;
     let windMPH = (windSpeed*2.237).toFixed(1);
     $(todayWind).html(windMPH+"MPH");
@@ -53,6 +53,10 @@ function showWeather(city){
     let temperature = (response.temp - 273.15) * 1.80 + 32;
     $(todayTemp).html((temperature).toFixed(2)+"F");
     console.log(todayTemp)
+    //Humidity response for today
+    $(todayHumid).html(response.humidity + " %")
+    console.log(todayHumid)
+
     })
 }
 
