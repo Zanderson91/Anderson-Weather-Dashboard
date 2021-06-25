@@ -1,4 +1,4 @@
-const APIkey = "7743391ae0557cf69b59c68a0e3c7325"
+let APIkey = "7743391ae0557cf69b59c68a0e3c7325"
 
 
 let search = $("#search");
@@ -31,9 +31,9 @@ function showForecast(event){
 }
 
 function showWeather(city){
-    let queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+    let queryURL = "http://api.openweathermap.org/data/2.5/forecast?id="+ city + "&appid=" + APIkey;
 
-    fetch({
+    $.ajax({
         method:"GET",
         url:queryURL,
     }) .then(function(response){
