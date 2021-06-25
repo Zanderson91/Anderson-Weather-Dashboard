@@ -1,6 +1,3 @@
-
-
-
 let search = $("#search");
 let searchBtn = $("#search-btn");
 let selectCity = $("#select-city");
@@ -32,15 +29,19 @@ function showForecast(event){
 
 function showWeather(city){
     let APIKey = "c80edcc66d171f416034dd0af305df70"
-    let queryURL = "http://api.openweathermap.org/data/2.5/forecast?q="+ "austin" + "&appid=c80edcc66d171f416034dd0af305df70";
+    let queryURL = "http://api.openweathermap.org/data/2.5/forecast?q="+ "city" + "&appid=c80edcc66d171f416034dd0af305df70";
 
 
     $.ajax({
         method:"GET",
         url:queryURL,
     }) .then(function(response){
-    
-console.log(response);
+        console.log(response);
+
+    //Need variable for date/time to parse
+    let date = new date(response.d*1000).toLocalDate();
+    $()
+
     })
 }
 
