@@ -41,3 +41,5 @@ function showWeather(city){
 console.log(response);
     })
 }
+
+//Need Event Handlers
