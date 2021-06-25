@@ -29,7 +29,7 @@ function showForecast(event){
 
 function showWeather(city){
     let APIKey = "c80edcc66d171f416034dd0af305df70"
-    let queryURL = "http://api.openweathermap.org/data/2.5/forecast?q="+ "city" + "&appid=c80edcc66d171f416034dd0af305df70";
+    let queryURL = "http://api.openweathermap.org/data/2.5/forecast?q="+ 'city' + "&appid=c80edcc66d171f416034dd0af305df70";
 
 
     $.ajax({
@@ -39,8 +39,10 @@ function showWeather(city){
         console.log(response);
 
     //Need variable for date/time to parse
-    let date = new date(response.d*1000).toLocalDate();
-    $()
+    
+    let date = new Date(response.dt*1000).toLocaleDateString();
+    $(selectCity).html(response.name +"(date)");
+    console.log(date)
 
     })
 }
