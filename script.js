@@ -39,7 +39,6 @@ function showWeather(city){
         console.log(response);
 
     //Need variable for date/time to parse
-    
     let date = new Date(response.dt*1000).toLocaleDateString();
     $(selectCity).html(response.name +"(date)");
     console.log(date)
@@ -56,7 +55,9 @@ function showWeather(city){
     //Humidity response for today
     $(todayHumid).html(response.humidity + " %")
     console.log(todayHumid)
-
+    //UV response for today
+    $(todayUV).html(response.uv + " %")
+    console.log(todayHumid)
     })
 }
 
