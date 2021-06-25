@@ -61,6 +61,9 @@ function showWeather(city){
     })
 }
 
+ // Function for 5 day forecast display
+
+
 //Need Event Handlers
 //$(document).on("click",showPastSearch);
 $("#search-btn").on("click", showWeather)
