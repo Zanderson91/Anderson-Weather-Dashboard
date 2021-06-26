@@ -38,30 +38,43 @@ function showWeather(city){
     }) .then(function(response){
         console.log(response);
 
-    //Need variable for date/time to parse
-    let date = new Date(response.dt*1000).toLocaleDateString();
+    let date = new Date(response.list[0].dt*1000).toLocaleDateString();
     $(selectCity).html(response.name +"(date)");
     console.log(date)
 
+
     //Need to return Wind, Humid, Temp, UV
-    let windSpeed = response.windspeed;
+    let windSpeed = response.list[0].wind.speed;
     let windMPH = (windSpeed*2.237).toFixed(1);
-    $(todayWind).html(windMPH+"MPH");
+    $(todayWind).html(windMPH+" MPH");
     console.log(windSpeed)
     // Temperature response for today (converted to F)
-    let temperature = (response.temp - 273.15) * 1.80 + 32;
+    let temperature = (response.list[0].main.temp - 273.15) * 1.80 + 32;
     $(todayTemp).html((temperature).toFixed(2)+"F");
     console.log(todayTemp)
     //Humidity response for today
-    $(todayHumid).html(response.humidity + " %")
+    $(todayHumid).html(response.list[0].main.humidity + " %")
     console.log(todayHumid)
     //UV response for today
-    $(todayUV).html(response.uv + " %")
+    $(todayUV).html(response.list[0].uv + " %")
     console.log(todayHumid)
     })
+
+        //Need variable for date/time to parse
+
 }
 
  // Function for 5 day forecast display
+function weeklyForecast(cityID){
+    let queryForecast="http://api.openweathermap.org/data/2.5/forecast?id="+ cityID + "&appid=c80edcc66d171f416034dd0af305df70";
+        $.ajax({
+        method:"GET",
+        url:queryURL,
+    }) .then(function(response){
+        console.log(response)
+    
+    })
+}
 
 
 //Need Event Handlers
