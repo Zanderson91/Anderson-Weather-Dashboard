@@ -57,39 +57,37 @@ function showWeather(city){
     console.log(todayHumid)
     //UV response for today
     $(todayUV).html(response.list[0].uv + " %")
-    console.log(todayHumid)
+    console.log(todayUV)
+    weeklyForecast(response);
     })
-
-        //Need variable for date/time to parse
-
 }
 
  // Function for 5 day forecast display
-function weeklyForecast(cityid){
-    let queryForecast="http://api.openweathermap.org/data/2.5/forecast?id="+ cityID + "&appid=c80edcc66d171f416034dd0af305df70";
-        $.ajax({
-        method:"GET",
-        url:queryURL,
-    }) .then(function(response){
-        console.log(cityid)
-    
-for (i=0;i<5;i++){
-            let date= new Date((response.list[((i+1)*8)-1].dt)*1000).toLocaleDateString();
-            let iconcode= response.list[((i+1)*8)-1].weather[0].icon;
+function weeklyForecast(response){
+
+for (i=8;i<=40;i+=8){
+            let date= new Date((response.list[i-1].dt)*1000).toLocaleDateString();
+            let iconcode= response.list[i-1].weather[0].icon;
             let iconurl="http://api.openweathermap.org/img/wn/"+iconcode+".png";
-            let tempK= response.list[((i+1)*8)-1].main.temp;
+            let tempK= response.list[i-1].main.temp;
             let tempF=(((tempK-273.5)*1.80)+32).toFixed(2);
-            let humidity= response.list[0].main.humidity;
+            let humidity= response.list[i-1].main.humidity;
+            let wind =response.list[i-1].wind.speed;
         console.log(humidity)
-            $("#day1").html(date);
+            $("#day"+i).html(date);
             $("#icon").html("<img src="+iconurl+">");
-            $("#temp1").html(tempF+"&#8457");
-            $("#humid1").html(humidity+"%");
+            $(".temp"+i).html(tempF+"&#8457");
+            $(".humid"+i).html(humidity+"%");
+            $(".wind" +i).html(wind);
     }
-})
 }
+
 
 
 //Need Event Handlers
 //$(document).on("click",showPastSearch);
-$("#search-btn").on("click", showWeather)
+$("#search-btn").on("click", function(){
+    showWeather(search.val())
+})
+
+
