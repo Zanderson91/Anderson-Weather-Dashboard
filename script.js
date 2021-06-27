@@ -29,7 +29,7 @@ function showForecast(event){
 
 function showWeather(city){
     let APIKey = "c80edcc66d171f416034dd0af305df70"
-    let queryURL = "http://api.openweathermap.org/data/2.5/forecast?q="+ 'dallas' + "&appid=c80edcc66d171f416034dd0af305df70";
+    let queryURL = "http://api.openweathermap.org/data/2.5/forecast?q="+ city + "&appid=c80edcc66d171f416034dd0af305df70";
 
 
     $.ajax({
@@ -39,7 +39,7 @@ function showWeather(city){
         console.log(response);
 
     let date = new Date(response.list[0].dt*1000).toLocaleDateString();
-    $(selectCity).html(response.name +"(date)");
+    $(selectCity).html(response.city.name + " " + date);
     console.log(date)
 
 
@@ -65,15 +65,28 @@ function showWeather(city){
 }
 
  // Function for 5 day forecast display
-function weeklyForecast(cityID){
+function weeklyForecast(cityid){
     let queryForecast="http://api.openweathermap.org/data/2.5/forecast?id="+ cityID + "&appid=c80edcc66d171f416034dd0af305df70";
         $.ajax({
         method:"GET",
         url:queryURL,
     }) .then(function(response){
-        console.log(response)
+        console.log(cityid)
     
-    })
+for (i=0;i<5;i++){
+            let date= new Date((response.list[((i+1)*8)-1].dt)*1000).toLocaleDateString();
+            let iconcode= response.list[((i+1)*8)-1].weather[0].icon;
+            let iconurl="http://api.openweathermap.org/img/wn/"+iconcode+".png";
+            let tempK= response.list[((i+1)*8)-1].main.temp;
+            let tempF=(((tempK-273.5)*1.80)+32).toFixed(2);
+            let humidity= response.list[0].main.humidity;
+        console.log(humidity)
+            $("#day1").html(date);
+            $("#icon").html("<img src="+iconurl+">");
+            $("#temp1").html(tempF+"&#8457");
+            $("#humid1").html(humidity+"%");
+    }
+})
 }
 
 
