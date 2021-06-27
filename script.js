@@ -9,6 +9,14 @@ let city = "";
 let cityIndex = []
 
 
+//Event Handlers
+$("#search-btn").on("click", function(){
+    showWeather(search.val())
+})
+$("#clear-history").on("click", clearHistory);
+
+
+
 function citySearch(cityName){
     for (var i=0; i<cityIndex.length; i++){
         if(cityName.toUpperCase() === cityIndex[i]){
@@ -82,12 +90,13 @@ for (i=8;i<=40;i+=8){
     }
 }
 
+//Clear the search history from the page
+function clearHistory(event){
+    event.preventDefault();
+    sCity=[];
+    localStorage.removeItem("cityname");
+    document.location.reload();
+}
 
-
-//Need Event Handlers
-//$(document).on("click",showPastSearch);
-$("#search-btn").on("click", function(){
-    showWeather(search.val())
-})
 
 
