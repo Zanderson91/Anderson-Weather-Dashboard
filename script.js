@@ -4,9 +4,11 @@ let selectCity = $("#select-city");
 let todayTemp = $("#temp");
 let todayWind = $("#wind");
 let todayHumid = $("#humid");
-let todayUV = $("#UV");
+let todayUV = $("#uv");
 let city = "";
 let cityIndex = [];
+let icon = $("icon-image");
+
 
 //Event Handlers
 $("#search-btn").on("click", function () {
@@ -62,7 +64,7 @@ $.ajax({
     $(todayHumid).html(response.list[0].main.humidity + " %");
     console.log(todayHumid);
     //UV response for today
-    $(todayUV).html(response.list[0].uv + " %");
+    $(todayUV).html(response.list[0].weather[0].description)
     console.log(todayUV);
     weeklyForecast(response);
 });
